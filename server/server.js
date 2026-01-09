@@ -1,9 +1,9 @@
 import express from 'express';
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-app.get('/api', (req, res) => {
-  res.send('Hello World!');
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
 });
 
 if (!process.env.VERCEL) {
